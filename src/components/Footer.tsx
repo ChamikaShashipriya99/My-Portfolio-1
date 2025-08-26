@@ -92,17 +92,38 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-16 relative">
+    <footer className="bg-gray-900 text-white py-16 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-circuit opacity-10"></div>
+      
+      {/* Floating Code Elements */}
+      <div className="floating-code top-32 left-8">const footer = "complete";</div>
+      <div className="floating-code top-64 right-12">function thanks() {"{ return gratitude; }"}</div>
+      <div className="floating-code bottom-32 left-16">git push origin main</div>
+      
+      {/* Glowing Orbs */}
+      <div className="glow-orb top-1/4 left-1/4"></div>
+      <div className="glow-orb bottom-1/3 right-1/4"></div>
+      
+      {/* Matrix-style Digital Rain */}
+      <div className="matrix-rain left-16" style={{ animationDelay: '0s' }}>end of page</div>
+      <div className="matrix-rain right-16" style={{ animationDelay: '2s' }}>function scrollTop()</div>
+      
+      {/* Particle System */}
+      <div className="particle top-1/3 left-1/3" style={{ animationDelay: '1s' }}></div>
+      <div className="particle top-2/3 right-1/3" style={{ animationDelay: '3s' }}></div>
+      <div className="particle bottom-1/4 left-2/3" style={{ animationDelay: '5s' }}></div>
+
       {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className="absolute -top-6 left-1/2 transform -translate-x-1/2 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        className="absolute -top-6 left-1/2 transform -translate-x-1/2 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg transition-all duration-200 hover:scale-110 z-20"
         aria-label="Scroll to top"
       >
         <ArrowUp size={20} />
       </button>
 
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Main Footer Content */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">

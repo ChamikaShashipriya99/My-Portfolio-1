@@ -102,14 +102,32 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-blue-900">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25px 25px, rgb(59, 130, 246, 0.1) 2px, transparent 0)`,
-          backgroundSize: '50px 50px'
-        }}></div>
-      </div>
+    <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-blue-900 overflow-hidden">
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
+      
+      {/* Glowing Orbs */}
+      <div className="glow-orb top-20 left-20"></div>
+      <div className="glow-orb top-40 right-32"></div>
+      <div className="glow-orb bottom-40 left-32"></div>
+      
+      {/* Floating Code Elements */}
+      <div className="floating-code top-32 left-16">const developer = "Chamika";</div>
+      <div className="floating-code top-64 right-24">function create() {"{ return awesome; }"}</div>
+      <div className="floating-code bottom-32 right-16">npm install creativity</div>
+      
+      {/* Matrix-style Binary Rain */}
+      <div className="binary-rain left-10" style={{ animationDelay: '0s' }}>10101010</div>
+      <div className="binary-rain left-20" style={{ animationDelay: '2s' }}>11001100</div>
+      <div className="binary-rain left-32" style={{ animationDelay: '4s' }}>10011001</div>
+      <div className="binary-rain right-16" style={{ animationDelay: '1s' }}>11110000</div>
+      <div className="binary-rain right-28" style={{ animationDelay: '3s' }}>10110110</div>
+      
+      {/* Particle System */}
+      <div className="particle top-1/4 left-1/4" style={{ animationDelay: '0s' }}></div>
+      <div className="particle top-1/3 right-1/3" style={{ animationDelay: '2s' }}></div>
+      <div className="particle bottom-1/4 left-1/3" style={{ animationDelay: '4s' }}></div>
+      <div className="particle bottom-1/3 right-1/4" style={{ animationDelay: '6s' }}></div>
 
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="text-center">

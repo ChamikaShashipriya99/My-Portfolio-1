@@ -156,6 +156,16 @@ const Projects = () => {
     return `https://raw.githubusercontent.com/ChamikaShashipriya99/${repo.name}/${repo.default_branch}/screenshot.png`;
   };
 
+  // Custom homepage mapping for specific repositories
+  const getCustomHomepage = (repoName: string) => {
+    const customHomepages: { [key: string]: string } = {
+      'Donga-Sri-Lanka-Tourism': 'https://donga-sri-lanka-tourism-website-two.vercel.app/',
+      'My-Portfolio': 'https://chamika-shashipriya-sigma.vercel.app/#projects',
+      'My-Portfolio-1': 'https://chamika-shashipriya-sigma.vercel.app/#projects'
+    };
+    return customHomepages[repoName] || null;
+  };
+
   const getFallbackImage = (repo: GitHubRepo) => {
     // Generate a fallback image based on repository name and language
     const colors = ['from-blue-500', 'from-purple-500', 'from-green-500', 'from-red-500', 'from-yellow-500', 'from-pink-500'];
@@ -199,8 +209,12 @@ const Projects = () => {
 
   if (loading) {
     return (
-      <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-6">
+      <section id="projects" className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-circuit opacity-10"></div>
+        <div className="absolute inset-0 bg-gradient-mesh opacity-20"></div>
+        
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -245,8 +259,11 @@ const Projects = () => {
 
   if (error) {
     return (
-      <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-6">
+      <section id="projects" className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-circuit opacity-10"></div>
+        
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               GitHub Projects
@@ -262,8 +279,30 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-circuit opacity-10"></div>
+      <div className="absolute inset-0 bg-gradient-mesh opacity-20"></div>
+      
+      {/* Floating Code Elements */}
+      <div className="floating-code top-32 left-8">git clone repository</div>
+      <div className="floating-code top-64 right-12">npm run dev</div>
+      <div className="floating-code bottom-32 left-16">git push origin main</div>
+      
+      {/* Glowing Orbs */}
+      <div className="glow-orb top-1/4 left-1/4"></div>
+      <div className="glow-orb bottom-1/3 right-1/4"></div>
+      
+      {/* Matrix-style Digital Rain */}
+      <div className="matrix-rain left-16" style={{ animationDelay: '0s' }}>const project = "awesome";</div>
+      <div className="matrix-rain right-16" style={{ animationDelay: '2s' }}>function deploy() {"{ return success; }"}</div>
+      
+      {/* Particle System */}
+      <div className="particle top-1/3 left-1/3" style={{ animationDelay: '1s' }}></div>
+      <div className="particle top-2/3 right-1/3" style={{ animationDelay: '3s' }}></div>
+      <div className="particle bottom-1/4 left-2/3" style={{ animationDelay: '5s' }}></div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -434,9 +473,9 @@ const Projects = () => {
                       <Github size={14} />
                       View Code
                     </a>
-                    {repo.homepage && (
+                    {(repo.homepage || getCustomHomepage(repo.name)) && (
                       <a 
-                        href={repo.homepage}
+                        href={repo.homepage || getCustomHomepage(repo.name) || '#'}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm font-medium transition-colors"

@@ -73,8 +73,32 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="container mx-auto px-6">
+    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-hexagon opacity-20"></div>
+      
+      {/* Matrix-style Digital Rain */}
+      <div className="matrix-rain left-8" style={{ animationDelay: '0s' }}>const skills = [];</div>
+      <div className="matrix-rain left-16" style={{ animationDelay: '2s' }}>function learn() {"{ return growth; }"}</div>
+      <div className="matrix-rain left-24" style={{ animationDelay: '4s' }}>npm install knowledge</div>
+      <div className="matrix-rain right-12" style={{ animationDelay: '1s' }}>git add .</div>
+      <div className="matrix-rain right-20" style={{ animationDelay: '3s' }}>console.log("coding");</div>
+      
+      {/* Floating Code Elements */}
+      <div className="floating-code top-32 left-1/4">let expertise = "growing";</div>
+      <div className="floating-code top-64 right-1/4">const passion = "learning";</div>
+      <div className="floating-code bottom-32 left-1/3">git push origin main</div>
+      
+      {/* Glowing Orbs */}
+      <div className="glow-orb top-1/3 left-1/4"></div>
+      <div className="glow-orb bottom-1/3 right-1/4"></div>
+      
+      {/* Particle System */}
+      <div className="particle top-1/4 left-1/2" style={{ animationDelay: '2s' }}></div>
+      <div className="particle top-1/2 right-1/3" style={{ animationDelay: '4s' }}></div>
+      <div className="particle bottom-1/4 left-2/3" style={{ animationDelay: '6s' }}></div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">

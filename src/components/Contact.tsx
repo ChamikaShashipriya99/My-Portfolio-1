@@ -95,8 +95,30 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-mesh opacity-25"></div>
+      <div className="absolute inset-0 bg-hexagon opacity-15"></div>
+      
+      {/* Floating Code Elements */}
+      <div className="floating-code top-32 left-8">const contact = "open";</div>
+      <div className="floating-code top-64 right-12">function message() {"{ return response; }"}</div>
+      <div className="floating-code bottom-32 left-16">npm install communication</div>
+      
+      {/* Glowing Orbs */}
+      <div className="glow-orb top-1/4 left-1/4"></div>
+      <div className="glow-orb bottom-1/3 right-1/4"></div>
+      
+      {/* Matrix-style Digital Rain */}
+      <div className="matrix-rain left-16" style={{ animationDelay: '0s' }}>let's connect</div>
+      <div className="matrix-rain right-16" style={{ animationDelay: '2s' }}>function collaborate()</div>
+      
+      {/* Particle System */}
+      <div className="particle top-1/3 left-1/3" style={{ animationDelay: '1s' }}></div>
+      <div className="particle top-2/3 right-1/3" style={{ animationDelay: '3s' }}></div>
+      <div className="particle bottom-1/4 left-2/3" style={{ animationDelay: '5s' }}></div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">

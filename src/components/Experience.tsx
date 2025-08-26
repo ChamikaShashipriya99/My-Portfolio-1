@@ -1,8 +1,21 @@
 import React from 'react';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
+interface ExperienceItem {
+  id: number;
+  title: string;
+  degree?: string;
+  company?: string;
+  school?: string;
+  location: string;
+  period: string;
+  description: string;
+  technologies?: string[];
+  achievements: string[];
+}
+
 const Experience = () => {
-  const experiences = [
+  const experiences: ExperienceItem[] = [
     {
       id: 1,
       title: "Automobile Motor Mechanic Technician",
@@ -19,9 +32,10 @@ const Experience = () => {
     }
   ];
 
-  const education = [
+  const education: ExperienceItem[] = [
     {
       id: 1,
+      title: "BSc (Hons) in Information Technology",
       degree: "BSc (Hons) in Information Technology",
       school: "Sri Lanka Institute of Information Technology (SLIIT)",
       location: "Sri Lanka",
@@ -35,6 +49,7 @@ const Experience = () => {
     },
     {
       id: 2,
+      title: "Automobile Motor Mechanic Course",
       degree: "Automobile Motor Mechanic Course",
       school: "Automobile Engineering Training Institute - Orugodawatta",
       location: "Orugodawatta, Sri Lanka",
@@ -48,6 +63,7 @@ const Experience = () => {
     },
     {
       id: 3,
+      title: "Information & Communication Technology (MS Office Package)",
       degree: "Information & Communication Technology (MS Office Package)",
       school: "The Open University Sri Lanka, Ambalangoda",
       location: "Ambalangoda, Sri Lanka",
@@ -61,6 +77,7 @@ const Experience = () => {
     },
     {
       id: 4,
+      title: "Short Course in Listening and Speaking",
       degree: "Short Course in Listening and Speaking",
       school: "The Open University Sri Lanka, Ambalangoda",
       location: "Ambalangoda, Sri Lanka",
@@ -74,7 +91,7 @@ const Experience = () => {
     }
   ];
 
-  const ExperienceCard = ({ experience, isEducation = false }) => (
+  const ExperienceCard = ({ experience, isEducation = false }: { experience: ExperienceItem; isEducation?: boolean }) => (
     <div className="relative">
       {/* Timeline Line */}
       <div className="absolute left-4 top-8 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-purple-600"></div>
@@ -119,7 +136,7 @@ const Experience = () => {
               Technologies Used:
             </h4>
             <div className="flex flex-wrap gap-2">
-              {experience.technologies.map((tech, index) => (
+              {experience.technologies.map((tech: string, index: number) => (
                 <span 
                   key={index}
                   className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full"
@@ -137,7 +154,7 @@ const Experience = () => {
             Key {isEducation ? 'Highlights' : 'Achievements'}:
           </h4>
           <ul className="space-y-1">
-            {experience.achievements.map((achievement, index) => (
+            {experience.achievements.map((achievement: string, index: number) => (
               <li 
                 key={index}
                 className="flex items-start gap-2 text-gray-600 dark:text-gray-400 text-sm"
@@ -153,8 +170,29 @@ const Experience = () => {
   );
 
   return (
-    <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="container mx-auto px-6">
+    <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-15"></div>
+      
+      {/* Floating Code Elements */}
+      <div className="floating-code top-32 left-8">const experience = "growing";</div>
+      <div className="floating-code top-64 right-12">function learn() {"{ return success; }"}</div>
+      <div className="floating-code bottom-32 left-16">git commit -m "new skills"</div>
+      
+      {/* Glowing Orbs */}
+      <div className="glow-orb top-1/4 right-1/4"></div>
+      <div className="glow-orb bottom-1/3 left-1/4"></div>
+      
+      {/* Matrix-style Digital Rain */}
+      <div className="matrix-rain left-16" style={{ animationDelay: '0s' }}>const education = "ongoing";</div>
+      <div className="matrix-rain right-16" style={{ animationDelay: '2s' }}>function graduate() {"{ return degree; }"}</div>
+      
+      {/* Particle System */}
+      <div className="particle top-1/3 left-1/3" style={{ animationDelay: '1s' }}></div>
+      <div className="particle top-2/3 right-1/3" style={{ animationDelay: '3s' }}></div>
+      <div className="particle bottom-1/4 left-2/3" style={{ animationDelay: '5s' }}></div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
