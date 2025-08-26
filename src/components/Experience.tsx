@@ -5,44 +5,16 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      title: "Full Stack Developer",
-      company: "Freelance",
-      location: "Ambalangoda, Sri Lanka",
-      period: "2021 - Present",
-      description: "Developing modern web applications using MEAN stack technologies. Creating responsive, user-friendly interfaces and robust backend systems for various clients.",
-      technologies: ["Angular", "Node.js", "MongoDB", "AWS", "Docker"],
+      title: "Automobile Motor Mechanic Technician",
+      company: "United Motors Pvt Ltd",
+      location: "Mathara, Sri Lanka",
+      period: "2020 - 2022",
+      description: "Worked as an Automobile Motor Mechanic Technician, gaining hands-on experience in automotive repair and maintenance.",
+      technologies: ["Automotive Systems", "Engine Repair", "Diagnostic Tools", "Customer Service"],
       achievements: [
-        "Built 20+ successful web applications",
-        "Specialized in MEAN stack development",
-        "Implemented responsive designs with modern UI/UX"
-      ]
-    },
-    {
-      id: 2,
-      title: "Web Developer",
-      company: "Local Projects",
-      location: "Ambalangoda, Sri Lanka",
-      period: "2020 - 2021",
-      description: "Worked on various local web development projects, focusing on creating modern, responsive websites and learning advanced development techniques.",
-      technologies: ["React", "Express.js", "PostgreSQL", "Redis"],
-      achievements: [
-        "Completed 10+ local business websites",
-        "Gained expertise in modern web technologies",
-        "Developed strong problem-solving skills"
-      ]
-    },
-    {
-      id: 3,
-      title: "Junior Developer",
-      company: "Self-Learning",
-      location: "Ambalangoda, Sri Lanka",
-      period: "2019 - 2020",
-      description: "Started my development journey by learning programming fundamentals and web development technologies through online courses and personal projects.",
-      technologies: ["React", "Angular", "TypeScript", "Sass"],
-      achievements: [
-        "Mastered HTML, CSS, and JavaScript fundamentals",
-        "Built first portfolio website",
-        "Started contributing to open-source projects"
+        "Developed expertise in automobile motor mechanics",
+        "Gained practical experience in automotive repair",
+        "Enhanced customer service and technical skills"
       ]
     }
   ];
@@ -50,15 +22,54 @@ const Experience = () => {
   const education = [
     {
       id: 1,
-      degree: "Self-Taught Developer",
-      school: "Online Learning Platforms",
+      degree: "BSc (Hons) in Information Technology",
+      school: "Sri Lanka Institute of Information Technology (SLIIT)",
       location: "Sri Lanka",
-      period: "2019 - Present",
-      description: "Continuously learning and improving skills through online courses, documentation, and hands-on projects.",
+      period: "July 2023 - Present",
+      description: "Currently pursuing a Bachelor of Science (Honours) degree in Information Technology, focusing on modern computing technologies and software development.",
       achievements: [
-        "Completed multiple online courses in web development",
-        "Active contributor to open-source projects",
-        "Constantly updating skills with latest technologies"
+        "Studying core IT concepts and programming",
+        "Learning modern software development practices",
+        "Building foundation for technology career"
+      ]
+    },
+    {
+      id: 2,
+      degree: "Automobile Motor Mechanic Course",
+      school: "Automobile Engineering Training Institute - Orugodawatta",
+      location: "Orugodawatta, Sri Lanka",
+      period: "2019 - 2022",
+      description: "Completed comprehensive training in automobile motor mechanics, covering engine repair, diagnostics, and automotive systems.",
+      achievements: [
+        "Completed full automobile motor mechanic course",
+        "Gained practical automotive engineering skills",
+        "Developed technical problem-solving abilities"
+      ]
+    },
+    {
+      id: 3,
+      degree: "Information & Communication Technology (MS Office Package)",
+      school: "The Open University Sri Lanka, Ambalangoda",
+      location: "Ambalangoda, Sri Lanka",
+      period: "2016",
+      description: "Completed course in Information & Communication Technology focusing on Microsoft Office applications and basic computer skills.",
+      achievements: [
+        "Mastered MS Office applications",
+        "Developed basic computer literacy",
+        "Enhanced digital communication skills"
+      ]
+    },
+    {
+      id: 4,
+      degree: "Short Course in Listening and Speaking",
+      school: "The Open University Sri Lanka, Ambalangoda",
+      location: "Ambalangoda, Sri Lanka",
+      period: "2022",
+      description: "Completed a short course focused on improving listening and speaking skills for better communication.",
+      achievements: [
+        "Enhanced verbal communication skills",
+        "Improved listening comprehension",
+        "Developed better interpersonal communication"
       ]
     }
   ];
