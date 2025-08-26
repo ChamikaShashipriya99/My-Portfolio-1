@@ -22,25 +22,25 @@ const Footer = () => {
       name: 'GitHub',
       url: 'https://github.com/ChamikaShashipriya99',
       icon: Github,
-      color: 'hover:text-gray-300'
+      color: 'hover:text-gray-900 dark:hover:text-white'
     },
     {
       name: 'LinkedIn',
       url: 'https://linkedin.com',
       icon: Linkedin,
-      color: 'hover:text-blue-400'
+      color: 'hover:text-blue-600 dark:hover:text-blue-400'
     },
     {
       name: 'Twitter',
       url: 'https://twitter.com',
       icon: Twitter,
-      color: 'hover:text-blue-400'
+      color: 'hover:text-blue-400 dark:hover:text-blue-300'
     },
     {
       name: 'WhatsApp',
       url: 'https://wa.me/94750471511',
       icon: MessageCircle,
-      color: 'hover:text-green-400'
+      color: 'hover:text-green-600 dark:hover:text-green-400'
     }
   ];
 
@@ -71,9 +71,9 @@ const Footer = () => {
       // Add visual feedback for the clicked link
       const activeLink = document.querySelector(`[data-section="${id}"]`);
       if (activeLink) {
-        activeLink.classList.add('text-blue-400', 'scale-105');
+        activeLink.classList.add('text-blue-600 dark:text-blue-400', 'scale-105');
         setTimeout(() => {
-          activeLink.classList.remove('text-blue-400', 'scale-105');
+          activeLink.classList.remove('text-blue-600 dark:text-blue-400', 'scale-105');
         }, 300);
       }
 
@@ -92,7 +92,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-16 relative overflow-hidden">
+    <footer className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white py-16 pt-24 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-circuit opacity-10"></div>
       
@@ -117,7 +117,7 @@ const Footer = () => {
       {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className="absolute -top-6 left-1/2 transform -translate-x-1/2 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg transition-all duration-200 hover:scale-110 z-20"
+        className="absolute -top-8 left-1/2 transform -translate-x-1/2 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg transition-all duration-200 hover:scale-110 z-20"
         aria-label="Scroll to top"
       >
         <ArrowUp size={20} />
@@ -130,13 +130,13 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="lg:col-span-2">
               <div className="mb-6">
-                <h3 className="text-3xl font-bold text-white mb-3">
+                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
                   Chamika Shashipriya
                 </h3>
-                <p className="text-gray-400 text-lg mb-4">
+                <p className="text-gray-600 dark:text-gray-400 text-lg mb-4">
                   Full Stack Developer & UI/UX Designer
                 </p>
-                <p className="text-gray-500 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-500 leading-relaxed">
                   Passionate about creating modern, scalable web applications with clean code and exceptional user experiences. 
                   Always learning and adapting to new technologies.
                 </p>
@@ -144,7 +144,7 @@ const Footer = () => {
               
               {/* Social Links */}
               <div>
-                <h4 className="text-lg font-semibold text-white mb-4">Connect With Me</h4>
+                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Connect With Me</h4>
                 <div className="flex gap-4">
                   {socialLinks.map((social, index) => (
                     <a
@@ -152,7 +152,7 @@ const Footer = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-3 bg-gray-800 text-gray-400 rounded-lg transition-all duration-200 hover:scale-110 ${social.color}`}
+                      className={`p-3 bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-lg transition-all duration-200 hover:scale-110 ${social.color}`}
                       aria-label={social.name}
                     >
                       <social.icon size={20} />
@@ -164,14 +164,14 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
+              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
                     <button
                       onClick={() => scrollToSection(link.id)}
                       data-section={link.id}
-                      className="text-gray-400 hover:text-white transition-all duration-300 text-left hover:translate-x-2 transform hover:scale-105 group"
+                      className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300 text-left hover:translate-x-2 transform hover:scale-105 group"
                     >
                       <span className="inline-block group-hover:bg-blue-600 group-hover:bg-opacity-20 px-2 py-1 rounded transition-all duration-300">
                         {link.name}
@@ -184,19 +184,19 @@ const Footer = () => {
 
             {/* Contact Information */}
             <div>
-              <h4 className="text-lg font-semibold text-white mb-4">Contact Info</h4>
+              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Contact Info</h4>
               <ul className="space-y-3">
                 {contactInfo.map((info, index) => (
                   <li key={index}>
                     <a
                       href={info.link}
-                      className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-200 group"
+                      className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 group"
                     >
-                      <div className="p-2 bg-gray-800 rounded-lg group-hover:bg-blue-600 transition-colors duration-200">
+                      <div className="p-2 bg-gray-200 dark:bg-gray-800 rounded-lg group-hover:bg-blue-600 transition-colors duration-200">
                         <info.icon size={16} />
                       </div>
                       <div>
-                        <p className="text-sm text-gray-500">{info.label}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-500">{info.label}</p>
                         <p className="text-sm font-medium">{info.value}</p>
                       </div>
                     </a>
@@ -207,17 +207,17 @@ const Footer = () => {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-gray-800 pt-8">
+          <div className="border-t border-gray-300 dark:border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               {/* Copyright */}
-              <div className="flex items-center gap-2 text-gray-400 text-sm">
+              <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 text-sm">
                 <span>© {currentYear} Chamika Shashipriya. Made with</span>
                 <Heart size={16} className="text-red-500" />
                 <span>using React & Tailwind CSS</span>
               </div>
 
               {/* Additional Info */}
-              <div className="text-gray-400 text-sm text-center md:text-right">
+              <div className="text-gray-600 dark:text-gray-400 text-sm text-center md:text-right">
                 <p>Designed & Developed by Chamika Shashipriya</p>
                 <p className="text-xs mt-1">Based in Ambalangoda, Sri Lanka</p>
               </div>
