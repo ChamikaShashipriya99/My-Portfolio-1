@@ -14,6 +14,8 @@ interface GitHubRepo {
   topics: string[];
   has_pages: boolean;
   default_branch: string;
+  readme_content?: string;
+  readme_loading?: boolean;
 }
 
 const Projects = () => {
@@ -22,6 +24,50 @@ const Projects = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState<string>('All');
   const [filteredRepos, setFilteredRepos] = useState<GitHubRepo[]>([]);
+
+  // Fetch README content for a repository
+  const fetchReadmeContent = async (repo: GitHubRepo) => {
+    try {
+      const response = await fetch(
+        `https://raw.githubusercontent.com/ChamikaShashipriya99/${repo.name}/${repo.default_branch}/README.md`
+      );
+      
+      if (response.ok) {
+        const readmeText = await response.text();
+        // Clean and format README content
+        const cleanReadme = readmeText
+          .replace(/!\[.*?\]\(.*?\)/g, '') // Remove images
+          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Convert links to text
+          .replace(/`([^`]+)`/g, '$1') // Remove code backticks
+          .replace(/#{1,6}\s+/g, '') // Remove markdown headers
+          .replace(/\*\*([^*]+)\*\*/g, '$1') // Remove bold
+          .replace(/\*([^*]+)\*/g, '$1') // Remove italic
+          .replace(/\n{3,}/g, '\n\n') // Limit consecutive newlines
+          .trim();
+        
+        return cleanReadme;
+      }
+      return null;
+    } catch (error) {
+      return null;
+    }
+  };
+
+  // Fetch README content for all repositories
+  const fetchAllReadmes = async (repositories: GitHubRepo[]) => {
+    const reposWithReadme = await Promise.all(
+      repositories.map(async (repo) => {
+        const readmeContent = await fetchReadmeContent(repo);
+        return {
+          ...repo,
+          readme_content: readmeContent || repo.description,
+          readme_loading: false
+        };
+      })
+    );
+    setRepos(reposWithReadme);
+    setFilteredRepos(reposWithReadme);
+  };
 
   useEffect(() => {
     const fetchGitHubRepos = async () => {
@@ -32,8 +78,18 @@ const Projects = () => {
           throw new Error('Failed to fetch repositories');
         }
         const data = await response.json();
-        setRepos(data);
-        setFilteredRepos(data);
+        
+        // Initialize repositories with loading state for README
+        const reposWithLoading = data.map((repo: GitHubRepo) => ({
+          ...repo,
+          readme_loading: true
+        }));
+        
+        setRepos(reposWithLoading);
+        setFilteredRepos(reposWithLoading);
+        
+        // Fetch README content for all repositories
+        fetchAllReadmes(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
@@ -113,6 +169,32 @@ const Projects = () => {
         </div>
       </div>
     );
+  };
+
+  // Get a better excerpt from README content
+  const getReadmeExcerpt = (content: string, maxLength: number = 150) => {
+    if (!content) return '';
+    
+    // Remove extra whitespace and newlines
+    const cleanContent = content.replace(/\s+/g, ' ').trim();
+    
+    if (cleanContent.length <= maxLength) {
+      return cleanContent;
+    }
+    
+    // Try to find a good breaking point (end of sentence, word boundary)
+    const truncated = cleanContent.substring(0, maxLength);
+    const lastSpace = truncated.lastIndexOf(' ');
+    const lastPeriod = truncated.lastIndexOf('.');
+    
+    // Prefer breaking at sentence end, then word boundary
+    if (lastPeriod > maxLength * 0.7) {
+      return truncated.substring(0, lastPeriod + 1);
+    } else if (lastSpace > maxLength * 0.8) {
+      return truncated.substring(0, lastSpace) + '...';
+    } else {
+      return truncated + '...';
+    }
   };
 
   if (loading) {
@@ -265,9 +347,21 @@ const Projects = () => {
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
                         {repo.name}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3">
-                        {repo.description || 'No description available'}
-                      </p>
+                      <div className="mb-4">
+                        {repo.readme_loading ? (
+                          <div className="space-y-2">
+                            <div className="h-3 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
+                            <div className="h-3 bg-gray-200 dark:bg-gray-600 rounded animate-pulse w-3/4"></div>
+                          </div>
+                        ) : (
+                          <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed line-clamp-3">
+                            {repo.readme_content ? 
+                              getReadmeExcerpt(repo.readme_content) : 
+                              (repo.description || 'No description available')
+                            }
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
 
