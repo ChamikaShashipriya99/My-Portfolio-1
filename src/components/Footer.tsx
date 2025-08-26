@@ -92,7 +92,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white py-16 pt-24 relative overflow-hidden">
+    <footer className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white py-16 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-circuit opacity-10"></div>
       
@@ -117,7 +117,7 @@ const Footer = () => {
       {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className="absolute -top-8 left-1/2 transform -translate-x-1/2 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg transition-all duration-200 hover:scale-110 z-20"
+        className="absolute -top-6 left-1/2 transform -translate-x-1/2 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg transition-all duration-200 hover:scale-110 z-20"
         aria-label="Scroll to top"
       >
         <ArrowUp size={20} />
