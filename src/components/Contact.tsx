@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -40,8 +40,8 @@ const Contact = () => {
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
+      value: "+94 70 412 0358",
+      link: "tel:+94704120358"
     },
     {
       icon: MapPin,
@@ -69,6 +69,12 @@ const Contact = () => {
       label: "Twitter",
       url: "https://twitter.com",
       color: "hover:text-blue-400"
+    },
+    {
+      icon: MessageCircle,
+      label: "WhatsApp",
+      url: "https://wa.me/94750471511",
+      color: "hover:text-green-600"
     }
   ];
 
@@ -120,16 +126,17 @@ const Contact = () => {
                 <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                   Follow Me
                 </h4>
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-3 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-lg transition-all duration-300 transform hover:scale-125 hover:-translate-y-2 hover:shadow-xl ${social.color} hover:bg-white dark:hover:bg-gray-700`}
+                      className={`flex items-center gap-2 p-3 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-lg transition-all duration-300 transform hover:scale-125 hover:-translate-y-2 hover:shadow-xl ${social.color} hover:bg-white dark:hover:bg-gray-700`}
                     >
                       <social.icon size={20} />
+                      <span className="text-sm font-medium">{social.label}</span>
                     </a>
                   ))}
                 </div>
