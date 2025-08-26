@@ -98,16 +98,16 @@ const Contact = () => {
                   <a 
                     key={index}
                     href={info.link}
-                    className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group"
+                    className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 group transform hover:scale-105 hover:shadow-lg"
                   >
-                    <div className="p-3 bg-blue-600 text-white rounded-lg group-hover:bg-blue-700 transition-colors">
+                    <div className="p-3 bg-blue-600 text-white rounded-lg group-hover:bg-blue-700 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-3">
                       <info.icon size={24} />
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white">
+                    <div className="transform group-hover:translate-x-2 transition-transform duration-300">
+                      <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                         {info.label}
                       </h4>
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <p className="text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
                         {info.value}
                       </p>
                     </div>
@@ -127,7 +127,7 @@ const Contact = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-3 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-lg transition-all duration-200 transform hover:scale-110 ${social.color}`}
+                      className={`p-3 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-lg transition-all duration-300 transform hover:scale-125 hover:-translate-y-2 hover:shadow-xl ${social.color} hover:bg-white dark:hover:bg-gray-700`}
                     >
                       <social.icon size={20} />
                     </a>
@@ -136,15 +136,28 @@ const Contact = () => {
               </div>
 
               {/* Availability Status */}
-              <div className="mt-8 p-6 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-lg border border-green-200 dark:border-green-800">
+              <div className="mt-8 p-6 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-lg border border-green-200 dark:border-green-800 hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:border-green-300 dark:hover:border-green-700 cursor-pointer group">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse group-hover:scale-150 transition-transform duration-300"></div>
+                  <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">
                     Available for Projects
                   </h4>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                <p className="text-gray-600 dark:text-gray-400 text-sm group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
                   Currently accepting new projects and collaborations. Let's build something amazing together!
+                </p>
+              </div>
+
+              {/* Open to Work Status */}
+              <div className="mt-4 p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg border border-blue-200 dark:border-blue-800 hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:border-blue-300 dark:hover:border-blue-700 cursor-pointer group">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse group-hover:scale-150 transition-transform duration-300"></div>
+                  <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                    Open to Work
+                  </h4>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
+                  Actively seeking full-time opportunities and new career challenges. Ready to contribute and grow!
                 </p>
               </div>
             </div>
