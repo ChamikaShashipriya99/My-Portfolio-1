@@ -1,55 +1,73 @@
 import React from 'react';
+import { 
+  Code, 
+  Database, 
+  GitBranch, 
+  Globe, 
+  Palette, 
+  FileCode, 
+  Server, 
+  Layers,
+  Zap,
+  Shield,
+  Cpu,
+  Monitor
+} from 'lucide-react';
 
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Programming",
+      title: "Programming Languages",
+      icon: <Code className="w-6 h-6 text-blue-600" />,
       skills: [
-        { name: "Java", level: 90, color: "bg-orange-500" },
-        { name: "Python", level: 85, color: "bg-blue-500" },
-        { name: "Kotlin", level: 80, color: "bg-purple-500" },
-        { name: "R", level: 75, color: "bg-blue-600" },
-        { name: "C#", level: 85, color: "bg-green-500" },
-        { name: "HTML/CSS", level: 90, color: "bg-orange-600" },
-        { name: "PHP", level: 80, color: "bg-blue-700" }
+        { name: "JavaScript", icon: "⚡" },
+        { name: "Java", icon: "☕" },
+        { name: "Python", icon: "🐍" },
+        { name: "C", icon: "🔧" },
+        { name: "C++", icon: "⚙️" },
+        { name: "C#", icon: "🔷" },
+        { name: "PHP", icon: "🐘" },
+        { name: "Kotlin", icon: "🟠" },
+        { name: "HTML", icon: "🌐" },
+        { name: "CSS", icon: "🎨" }
       ]
     },
     {
       title: "Databases",
+      icon: <Database className="w-6 h-6 text-green-600" />,
       skills: [
-        { name: "MySQL Workbench", level: 85, color: "bg-blue-500" },
-        { name: "MongoDB", level: 80, color: "bg-green-600" },
-        { name: "SQL Server Management Studio", level: 75, color: "bg-red-500" }
+        { name: "MongoDB", icon: "🍃" },
+        { name: "MySQL", icon: "🐬" },
+        { name: "Microsoft SQL Server", icon: "🗄️" }
       ]
     },
     {
-      title: "Tools & IDEs",
+      title: "Tools and IDE's",
+      icon: <GitBranch className="w-6 h-6 text-purple-600" />,
       skills: [
-        { name: "GitHub", level: 90, color: "bg-gray-700" },
-        { name: "Visual Studio Code", level: 95, color: "bg-blue-500" },
-        { name: "Visual Studio", level: 85, color: "bg-purple-600" },
-        { name: "Android Studio", level: 80, color: "bg-green-500" },
-        { name: "Eclipse", level: 75, color: "bg-orange-500" },
-        { name: "XAMPP", level: 70, color: "bg-orange-600" }
+        { name: "Git", icon: "📚" },
+        { name: "GitHub", icon: "🐙" },
+        { name: "NPM", icon: "📦" },
+        { name: "Figma", icon: "🎯" },
+        { name: "Canva", icon: "🎨" },
+        { name: "Cisco", icon: "🌐" },
+        { name: "Trello", icon: "📋" },
+        { name: "Nodemon", icon: "🔄" },
+        { name: "Apache Tomcat", icon: "🐱" }
       ]
     },
     {
       title: "Frameworks & Platforms",
+      icon: <Globe className="w-6 h-6 text-orange-600" />,
       skills: [
-        { name: ".NET", level: 85, color: "bg-purple-500" },
-        { name: "Node.js", level: 80, color: "bg-green-500" },
-        { name: "Spring Boot", level: 75, color: "bg-green-600" },
-        { name: "React.js", level: 85, color: "bg-blue-500" }
-      ]
-    },
-    {
-      title: "Soft Skills",
-      skills: [
-        { name: "Communication", level: 90, color: "bg-blue-500" },
-        { name: "Quick-Learning", level: 95, color: "bg-green-500" },
-        { name: "Self-Learning Time", level: 90, color: "bg-purple-500" },
-        { name: "Management", level: 85, color: "bg-orange-500" },
-        { name: "Problem-Solving", level: 90, color: "bg-red-500" }
+        { name: "React", icon: "⚛️" },
+        { name: "Node.js", icon: "🟢" },
+        { name: "Express.js", icon: "🚂" },
+        { name: "Bootstrap", icon: "🎨" },
+        { name: "Tailwind", icon: "💨" },
+        { name: ".NET", icon: "🔷" },
+        { name: "Spring", icon: "🍃" },
+        { name: "JWT", icon: "🔐" }
       ]
     }
   ];
@@ -68,31 +86,27 @@ const Skills = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-5 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skillCategories.map((category, categoryIndex) => (
-              <div key={categoryIndex} className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-                  {category.title}
-                </h3>
-                <div className="space-y-6">
+              <div key={categoryIndex} className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300">
+                <div className="text-center mb-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full mb-4">
+                    {category.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    {category.title}
+                  </h3>
+                </div>
+                <div className="space-y-4">
                   {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex} className="group">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-gray-700 dark:text-gray-300 font-medium">
-                          {skill.name}
-                        </span>
-                        <span className="text-gray-500 dark:text-gray-400 text-sm font-semibold">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-                        <div 
-                          className={`h-2 ${skill.color} rounded-full transition-all duration-1000 ease-out group-hover:scale-105 transform origin-left`}
-                          style={{ 
-                            width: `${skill.level}%`
-                          }}
-                        ></div>
-                      </div>
+                    <div 
+                      key={skillIndex} 
+                      className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200 group"
+                    >
+                      <span className="text-2xl">{skill.icon}</span>
+                      <span className="text-gray-700 dark:text-gray-300 font-medium group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {skill.name}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -100,20 +114,45 @@ const Skills = () => {
             ))}
           </div>
 
-          {/* Additional Technologies */}
+          {/* Skills Summary */}
           <div className="mt-16 text-center">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
-              Technologies I Work With
+              Technical Expertise Overview
             </h3>
-            <div className="flex flex-wrap justify-center gap-4">
-              {['Java', 'Python', 'Kotlin', 'C#', 'HTML/CSS', 'PHP', 'MySQL', 'MongoDB', 'SQL Server', 'GitHub', 'VS Code', 'Visual Studio', 'Android Studio', 'Eclipse', 'XAMPP', '.NET', 'Node.js', 'Spring Boot', 'React.js'].map((tech, index) => (
-                <span 
-                  key={index}
-                  className="px-4 py-2 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-default border border-gray-200 dark:border-gray-700"
-                >
-                  {tech}
-                </span>
-              ))}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg">
+                <div className="flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-full mx-auto mb-4">
+                  <Monitor className="w-8 h-8 text-blue-600" />
+                </div>
+                <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">
+                  Full-Stack Development
+                </h4>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  Proficient in both frontend and backend technologies with expertise in modern web frameworks and databases.
+                </p>
+              </div>
+              <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg">
+                <div className="flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900/20 rounded-full mx-auto mb-4">
+                  <Zap className="w-8 h-8 text-green-600" />
+                </div>
+                <h4 className="text-lg font-semibold text-green-600 dark:text-green-400 mb-3">
+                  Modern Tools & Platforms
+                </h4>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  Experience with contemporary development tools, IDEs, and collaboration platforms for efficient project delivery.
+                </p>
+              </div>
+              <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg">
+                <div className="flex items-center justify-center w-16 h-16 bg-purple-100 dark:bg-purple-900/20 rounded-full mx-auto mb-4">
+                  <Layers className="w-8 h-8 text-purple-600" />
+                </div>
+                <h4 className="text-lg font-semibold text-purple-600 dark:text-purple-400 mb-3">
+                  Cross-Platform Solutions
+                </h4>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  Versatile programming skills across multiple languages and platforms for diverse project requirements.
+                </p>
+              </div>
             </div>
           </div>
         </div>
