@@ -338,46 +338,59 @@ const Projects = () => {
                     }}
                   />
                   {getFallbackImage(repo)}
+                  
+                  {/* Profile Picture and Status */}
+                  <div className="absolute top-4 right-4 flex items-center gap-2">
+                    {/* Status Indicator */}
+                    <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
+                    {/* Profile Picture */}
+                    <div className="w-10 h-10 rounded-lg overflow-hidden border-2 border-white dark:border-gray-800 shadow-lg">
+                      <img 
+                        src="https://github.com/ChamikaShashipriya99.png" 
+                        alt="Profile" 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 {/* Repository Content */}
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1 font-mono">
                         {repo.name}
                       </h3>
-                      <div className="mb-4">
-                        {repo.readme_loading ? (
-                          <div className="space-y-2">
-                            <div className="h-3 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
-                            <div className="h-3 bg-gray-200 dark:bg-gray-600 rounded animate-pulse w-3/4"></div>
-                          </div>
-                        ) : (
-                          <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed line-clamp-3">
-                            {repo.readme_content ? 
-                              getReadmeExcerpt(repo.readme_content) : 
-                              (repo.description || 'No description available')
-                            }
-                          </p>
-                        )}
-                      </div>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3">
+                        {repo.readme_content ? 
+                          getReadmeExcerpt(repo.readme_content) : 
+                          (repo.description || 'No description available')
+                        }
+                      </p>
                     </div>
                   </div>
 
                   {/* Repository Stats */}
                   <div className="flex items-center gap-4 mb-4 text-sm text-gray-600 dark:text-gray-400">
-                    <div className="flex items-center gap-1">
-                      <Star size={14} />
-                      <span>{repo.stargazers_count}</span>
+                    <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                      <span className="text-xs">👤</span>
+                      <span className="font-medium">{repo.stargazers_count || 1}</span>
+                      <span className="text-xs">Contributor</span>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <GitFork size={14} />
-                      <span>{repo.forks_count}</span>
+                    <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                      <span className="text-xs">⚠️</span>
+                      <span className="font-medium">{repo.forks_count || 0}</span>
+                      <span className="text-xs">Issues</span>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Calendar size={14} />
-                      <span>{formatDate(repo.updated_at)}</span>
+                    <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                      <span className="text-xs">⭐</span>
+                      <span className="font-medium">{repo.stargazers_count || 0}</span>
+                      <span className="text-xs">Stars</span>
+                    </div>
+                    <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                      <span className="text-xs">🔄</span>
+                      <span className="font-medium">{repo.forks_count || 0}</span>
+                      <span className="text-xs">Forks</span>
                     </div>
                   </div>
 
@@ -433,6 +446,22 @@ const Projects = () => {
                       </a>
                     )}
                   </div>
+
+                  {/* Language Bar */}
+                  {repo.language && (
+                    <div className="mt-4">
+                      <div className="flex items-center justify-between text-xs text-gray-600 dark:text-gray-400 mb-2">
+                        <span>Primary Language</span>
+                        <span className="font-medium">{repo.language}</span>
+                      </div>
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div 
+                          className={`h-2 ${getLanguageColor(repo.language)} rounded-full transition-all duration-500`}
+                          style={{ width: '100%' }}
+                        ></div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
