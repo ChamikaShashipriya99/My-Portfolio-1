@@ -86,6 +86,21 @@ const Hero = () => {
     }
   };
 
+  const downloadCV = () => {
+    const cvUrl = 'https://drive.google.com/file/d/1TyhpkBU6cNPi3uqAojoDZknd57lGbcTz/view?usp=drive_link';
+    
+    // Create a temporary link element to trigger download
+    const link = document.createElement('a');
+    link.href = cvUrl;
+    link.target = '_blank';
+    link.download = 'Chamika_Shashipriya_CV.pdf';
+    
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-blue-900">
       {/* Background Pattern */}
@@ -140,7 +155,10 @@ const Hero = () => {
                 <ExternalLink size={18} />
               </button>
               
-              <button className="px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-600 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 flex items-center justify-center gap-2">
+              <button 
+                onClick={downloadCV}
+                className="px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-600 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 flex items-center justify-center gap-2"
+              >
                 Download CV
                 <Download size={18} />
               </button>
