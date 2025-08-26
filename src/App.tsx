@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [currentSection, setCurrentSection] = useState('home');
 
   useEffect(() => {
     if (darkMode) {
@@ -19,19 +20,88 @@ function App() {
     }
   }, [darkMode]);
 
+  useEffect(() => {
+    // Smooth scroll behavior for the entire page
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setCurrentSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Add smooth scrolling to all internal links
+  useEffect(() => {
+    const handleInternalLinkClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a[href^="#"]') as HTMLAnchorElement;
+      
+      if (link) {
+        e.preventDefault();
+        const targetId = link.getAttribute('href')?.substring(1);
+        if (targetId) {
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      }
+    };
+
+    document.addEventListener('click', handleInternalLinkClick);
+    return () => document.removeEventListener('click', handleInternalLinkClick);
+  }, []);
+
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
+    <div className={`min-h-screen transition-all duration-500 ease-in-out ${
       darkMode ? 'dark' : ''
     }`}>
       <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
         <Header darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Contact />
-        <Footer />
+        
+        {/* Page Sections with Transition Effects */}
+        <div className="transition-all duration-700 ease-in-out">
+          <Hero />
+        </div>
+        
+        <div className="transition-all duration-700 ease-in-out">
+          <About />
+        </div>
+        
+        <div className="transition-all duration-700 ease-in-out">
+          <Skills />
+        </div>
+        
+        <div className="transition-all duration-700 ease-in-out">
+          <Projects />
+        </div>
+        
+        <div className="transition-all duration-700 ease-in-out">
+          <Experience />
+        </div>
+        
+        <div className="transition-all duration-700 ease-in-out">
+          <Contact />
+        </div>
+        
+        <div className="transition-all duration-700 ease-in-out">
+          <Footer />
+        </div>
       </div>
     </div>
   );

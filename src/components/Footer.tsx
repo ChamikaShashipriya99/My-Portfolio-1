@@ -68,7 +68,26 @@ const Footer = () => {
   const scrollToSection = (id: string) => {
     const element = document.querySelector(`#${id}`);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Add visual feedback for the clicked link
+      const activeLink = document.querySelector(`[data-section="${id}"]`);
+      if (activeLink) {
+        activeLink.classList.add('text-blue-400', 'scale-105');
+        setTimeout(() => {
+          activeLink.classList.remove('text-blue-400', 'scale-105');
+        }, 300);
+      }
+
+      // Smooth scroll with easing
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+
+      // Add highlight effect to the target section
+      element.classList.add('ring-2', 'ring-blue-500', 'ring-opacity-50');
+      setTimeout(() => {
+        element.classList.remove('ring-2', 'ring-blue-500', 'ring-opacity-50');
+      }, 2000);
     }
   };
 
@@ -130,9 +149,12 @@ const Footer = () => {
                   <li key={index}>
                     <button
                       onClick={() => scrollToSection(link.id)}
-                      className="text-gray-400 hover:text-white transition-colors duration-200 text-left hover:translate-x-1 transform transition-transform"
+                      data-section={link.id}
+                      className="text-gray-400 hover:text-white transition-all duration-300 text-left hover:translate-x-2 transform hover:scale-105 group"
                     >
-                      {link.name}
+                      <span className="inline-block group-hover:bg-blue-600 group-hover:bg-opacity-20 px-2 py-1 rounded transition-all duration-300">
+                        {link.name}
+                      </span>
                     </button>
                   </li>
                 ))}
@@ -160,50 +182,6 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
-
-          {/* Additional Sections */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {/* Skills Summary */}
-            <div className="bg-gray-800 rounded-lg p-6">
-              <h4 className="text-lg font-semibold text-white mb-4">Tech Stack</h4>
-              <div className="flex flex-wrap gap-2">
-                {['React', 'Node.js', 'JavaScript', 'Python', 'MongoDB', 'MySQL'].map((skill, index) => (
-                  <span key={index} className="px-3 py-1 bg-blue-600 text-white text-xs rounded-full">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Availability Status */}
-            <div className="bg-gray-800 rounded-lg p-6">
-              <h4 className="text-lg font-semibold text-white mb-4">Status</h4>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-gray-400">Available for Projects</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-gray-400">Open to Work</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Download CV */}
-            <div className="bg-gray-800 rounded-lg p-6">
-              <h4 className="text-lg font-semibold text-white mb-4">Resume</h4>
-              <a
-                href="https://drive.google.com/file/d/1TyhpkBU6cNPi3uqAojoDZknd57lGbcTz/view?usp=drive_link"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 hover:scale-105"
-              >
-                <ExternalLink size={16} />
-                Download CV
-              </a>
             </div>
           </div>
 

@@ -31,7 +31,26 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
     setIsOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Add visual feedback for the clicked nav item
+      const activeNav = document.querySelector(`[data-nav="${href}"]`);
+      if (activeNav) {
+        activeNav.classList.add('text-blue-600', 'dark:text-blue-400', 'scale-105');
+        setTimeout(() => {
+          activeNav.classList.remove('text-blue-600', 'dark:text-blue-400', 'scale-105');
+        }, 300);
+      }
+
+      // Smooth scroll with easing and highlight effect
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+
+      // Add highlight effect to the target section
+      element.classList.add('ring-2', 'ring-blue-500', 'ring-opacity-50', 'animate-pulse');
+      setTimeout(() => {
+        element.classList.remove('ring-2', 'ring-blue-500', 'ring-opacity-50', 'animate-pulse');
+      }, 2000);
     }
   };
 
@@ -53,9 +72,11 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
+                data-nav={item.href}
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 font-medium relative group"
               >
                 {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
             
