@@ -87,7 +87,7 @@ const Hero = () => {
   };
 
   const downloadCV = () => {
-    const cvUrl = 'https://drive.google.com/file/d/1TyhpkBU6cNPi3uqAojoDZknd57lGbcTz/view?usp=drive_link';
+    const cvUrl = 'https://drive.google.com/file/d/1PMsy5SpFXKOybPaYwoClG91ofjASYu_U/view?usp=drive_link';
     
     // Create a temporary link element to trigger download
     const link = document.createElement('a');
