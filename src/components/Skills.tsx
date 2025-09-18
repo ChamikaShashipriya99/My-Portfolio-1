@@ -13,6 +13,39 @@ import {
   Cpu,
   Monitor
 } from 'lucide-react';
+import {
+  SiJavascript,
+  SiC,
+  SiCplusplus,
+  SiKotlin,
+  SiMongodb,
+  SiMysql,
+  SiExpress,
+  SiTailwindcss,
+  SiDotnet,
+  SiSpring,
+  SiJsonwebtokens,
+  SiCanva,
+  SiCisco,
+  SiTrello,
+  SiNodemon,
+  SiApachetomcat
+} from 'react-icons/si';
+import {
+  FaJava,
+  FaPython,
+  FaPhp,
+  FaHtml5,
+  FaCss3Alt,
+  FaGit,
+  FaGithub,
+  FaNpm,
+  FaFigma,
+  FaReact,
+  FaNodeJs,
+  FaBootstrap,
+  FaDatabase
+} from 'react-icons/fa';
 
 const Skills = () => {
   const skillCategories = [
@@ -20,54 +53,54 @@ const Skills = () => {
       title: "Programming Languages",
       icon: <Code className="w-6 h-6 text-blue-600" />,
       skills: [
-        { name: "JavaScript", icon: "⚡" },
-        { name: "Java", icon: "☕" },
-        { name: "Python", icon: "🐍" },
-        { name: "C", icon: "🔧" },
-        { name: "C++", icon: "⚙️" },
-        { name: "C#", icon: "🔷" },
-        { name: "PHP", icon: "🐘" },
-        { name: "Kotlin", icon: "🟠" },
-        { name: "HTML", icon: "🌐" },
-        { name: "CSS", icon: "🎨" }
+        { name: "JavaScript", icon: <SiJavascript className="w-6 h-6 text-yellow-500" /> },
+        { name: "Java", icon: <FaJava className="w-6 h-6 text-[#ea2d2e]" /> },
+        { name: "Python", icon: <FaPython className="w-6 h-6 text-[#3776AB]" /> },
+        { name: "C", icon: <SiC className="w-6 h-6 text-[#00599C]" /> },
+        { name: "C++", icon: <SiCplusplus className="w-6 h-6 text-[#00599C]" /> },
+        { name: "C#", icon: <SiDotnet className="w-6 h-6 text-[#512BD4]" /> },
+        { name: "PHP", icon: <FaPhp className="w-6 h-6 text-[#777BB4]" /> },
+        { name: "Kotlin", icon: <SiKotlin className="w-6 h-6 text-[#7F52FF]" /> },
+        { name: "HTML", icon: <FaHtml5 className="w-6 h-6 text-[#E34F26]" /> },
+        { name: "CSS", icon: <FaCss3Alt className="w-6 h-6 text-[#1572B6]" /> }
       ]
     },
     {
       title: "Databases",
       icon: <Database className="w-6 h-6 text-green-600" />,
       skills: [
-        { name: "MongoDB", icon: "🍃" },
-        { name: "MySQL", icon: "🐬" },
-        { name: "Microsoft SQL Server", icon: "🗄️" }
+        { name: "MongoDB", icon: <SiMongodb className="w-6 h-6 text-[#47A248]" /> },
+        { name: "MySQL", icon: <SiMysql className="w-6 h-6 text-[#4479A1]" /> },
+        { name: "Microsoft SQL Server", icon: <FaDatabase className="w-6 h-6 text-[#CC2927]" /> }
       ]
     },
     {
       title: "Tools and IDE's",
       icon: <GitBranch className="w-6 h-6 text-purple-600" />,
       skills: [
-        { name: "Git", icon: "📚" },
-        { name: "GitHub", icon: "🐙" },
-        { name: "NPM", icon: "📦" },
-        { name: "Figma", icon: "🎯" },
-        { name: "Canva", icon: "🎨" },
-        { name: "Cisco", icon: "🌐" },
-        { name: "Trello", icon: "📋" },
-        { name: "Nodemon", icon: "🔄" },
-        { name: "Apache Tomcat", icon: "🐱" }
+        { name: "Git", icon: <FaGit className="w-6 h-6 text-[#F05032]" /> },
+        { name: "GitHub", icon: <FaGithub className="w-6 h-6 text-gray-900 dark:text-gray-100" /> },
+        { name: "NPM", icon: <FaNpm className="w-6 h-6 text-[#CB3837]" /> },
+        { name: "Figma", icon: <FaFigma className="w-6 h-6 text-[#F24E1E]" /> },
+        { name: "Canva", icon: <SiCanva className="w-6 h-6 text-[#00C4CC]" /> },
+        { name: "Cisco", icon: <SiCisco className="w-6 h-6 text-[#1BA0D7]" /> },
+        { name: "Trello", icon: <SiTrello className="w-6 h-6 text-[#0052CC]" /> },
+        { name: "Nodemon", icon: <SiNodemon className="w-6 h-6 text-[#76D04B]" /> },
+        { name: "Apache Tomcat", icon: <SiApachetomcat className="w-6 h-6 text-[#F8DC75]" /> }
       ]
     },
     {
       title: "Frameworks & Platforms",
       icon: <Globe className="w-6 h-6 text-orange-600" />,
       skills: [
-        { name: "React", icon: "⚛️" },
-        { name: "Node.js", icon: "🟢" },
-        { name: "Express.js", icon: "🚂" },
-        { name: "Bootstrap", icon: "🎨" },
-        { name: "Tailwind", icon: "💨" },
-        { name: ".NET", icon: "🔷" },
-        { name: "Spring", icon: "🍃" },
-        { name: "JWT", icon: "🔐" }
+        { name: "React", icon: <FaReact className="w-6 h-6 text-[#61DAFB]" /> },
+        { name: "Node.js", icon: <FaNodeJs className="w-6 h-6 text-[#339933]" /> },
+        { name: "Express.js", icon: <SiExpress className="w-6 h-6 text-gray-900 dark:text-gray-100" /> },
+        { name: "Bootstrap", icon: <FaBootstrap className="w-6 h-6 text-[#7952B3]" /> },
+        { name: "Tailwind", icon: <SiTailwindcss className="w-6 h-6 text-[#06B6D4]" /> },
+        { name: ".NET", icon: <SiDotnet className="w-6 h-6 text-[#512BD4]" /> },
+        { name: "Spring", icon: <SiSpring className="w-6 h-6 text-[#6DB33F]" /> },
+        { name: "JWT", icon: <SiJsonwebtokens className="w-6 h-6 text-[#000000]" /> }
       ]
     }
   ];
