@@ -29,7 +29,9 @@ import {
   SiCisco,
   SiTrello,
   SiNodemon,
-  SiApachetomcat
+  SiApachetomcat,
+  SiCodeigniter,
+  SiXampp
 } from 'react-icons/si';
 import {
   FaJava,
@@ -71,7 +73,8 @@ const Skills = () => {
       skills: [
         { name: "MongoDB", icon: <SiMongodb className="w-6 h-6 text-[#47A248]" /> },
         { name: "MySQL", icon: <SiMysql className="w-6 h-6 text-[#4479A1]" /> },
-        { name: "Microsoft SQL Server", icon: <FaDatabase className="w-6 h-6 text-[#CC2927]" /> }
+        { name: "Microsoft SQL Server", icon: <FaDatabase className="w-6 h-6 text-[#CC2927]" /> },
+        { name: "XAMPP", icon: <SiXampp className="w-6 h-6 text-[#FB7A24]" /> }
       ]
     },
     {
@@ -100,7 +103,8 @@ const Skills = () => {
         { name: "Tailwind", icon: <SiTailwindcss className="w-6 h-6 text-[#06B6D4]" /> },
         { name: ".NET", icon: <SiDotnet className="w-6 h-6 text-[#512BD4]" /> },
         { name: "Spring", icon: <SiSpring className="w-6 h-6 text-[#6DB33F]" /> },
-        { name: "JWT", icon: <SiJsonwebtokens className="w-6 h-6 text-[#000000]" /> }
+        { name: "JWT", icon: <SiJsonwebtokens className="w-6 h-6 text-[#000000]" /> },
+        { name: "CodeIgniter", icon: <SiCodeigniter className="w-6 h-6 text-[#EF4223]" /> }
       ]
     }
   ];
