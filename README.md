@@ -90,6 +90,8 @@ yarn build
 
 The built files will be in the `dist` directory, ready for deployment.
 
+> Deployment note: ensure `react-icons` is listed under dependencies in `package.json` so Vercel can resolve icon imports during build.
+
 ## 📁 Project Structure
 
 ```
