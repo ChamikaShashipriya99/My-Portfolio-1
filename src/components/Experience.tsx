@@ -1,4 +1,3 @@
-import React from 'react';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
 interface ExperienceItem {
@@ -12,16 +11,33 @@ interface ExperienceItem {
   description: string;
   technologies?: string[];
   achievements: string[];
+  logo?: string;
 }
 
 const Experience = () => {
   const experiences: ExperienceItem[] = [
     {
       id: 1,
+      title: "3-Month Industrial Program - Full Stack Web Developer Training",
+      company: "DoMedia Company",
+      location: "Malabe, Sri Lanka",
+      period: "Present",
+      logo: "/assets/domedia-logo.png",
+      description: "Currently attending a comprehensive 3-month full-time Industrial Training Program focused on Full Stack Web Development. This intensive program covers both frontend and backend technologies to develop well-rounded web development skills.",
+      technologies: ["Full Stack Development", "Web Technologies", "Modern Frameworks", "Best Practices"],
+      achievements: [
+        "Learning full stack web development through hands-on training",
+        "Building real-world web applications",
+        "Mastering industry best practices and modern development workflows"
+      ]
+    },
+    {
+      id: 2,
       title: "Automobile Motor Mechanic Technician",
       company: "United Motors Pvt Ltd",
       location: "Mathara, Sri Lanka",
       period: "2020 - 2022",
+      logo: "/assets/united-motors-logo.png",
       description: "Worked as an Automobile Motor Mechanic Technician, gaining hands-on experience in automotive repair and maintenance.",
       technologies: ["Automotive Systems", "Engine Repair", "Diagnostic Tools", "Customer Service"],
       achievements: [
@@ -40,6 +56,7 @@ const Experience = () => {
       school: "Sri Lanka Institute of Information Technology (SLIIT)",
       location: "Sri Lanka",
       period: "July 2023 - Present",
+      logo: "/assets/sliit-logo.png",
       description: "Currently pursuing a Bachelor of Science (Honours) degree in Information Technology, focusing on modern computing technologies and software development.",
       achievements: [
         "Studying core IT concepts and programming",
@@ -54,6 +71,7 @@ const Experience = () => {
       school: "Automobile Engineering Training Institute - Orugodawatta",
       location: "Orugodawatta, Sri Lanka",
       period: "2019 - 2022",
+      logo: "/assets/aeti-logo.png",
       description: "Completed comprehensive training in automobile motor mechanics, covering engine repair, diagnostics, and automotive systems.",
       achievements: [
         "Completed full automobile motor mechanic course",
@@ -68,6 +86,7 @@ const Experience = () => {
       school: "The Open University Sri Lanka, Ambalangoda",
       location: "Ambalangoda, Sri Lanka",
       period: "2016",
+      logo: "/assets/open-university-logo.png",
       description: "Completed course in Information & Communication Technology focusing on Microsoft Office applications and basic computer skills.",
       achievements: [
         "Mastered MS Office applications",
@@ -82,6 +101,7 @@ const Experience = () => {
       school: "The Open University Sri Lanka, Ambalangoda",
       location: "Ambalangoda, Sri Lanka",
       period: "2022",
+      logo: "/assets/open-university-logo.png",
       description: "Completed a short course focused on improving listening and speaking skills for better communication.",
       achievements: [
         "Enhanced verbal communication skills",
@@ -103,18 +123,33 @@ const Experience = () => {
       <div className="ml-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 transform hover:-translate-y-1">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-          <div>
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-              {experience.title}
-            </h3>
-            <div className="flex items-center gap-4 text-gray-600 dark:text-gray-400">
-              <div className="flex items-center gap-1">
-                <Briefcase size={16} />
-                <span className="font-medium">{experience.company || experience.school}</span>
+          <div className="flex items-start gap-4">
+            {/* Company Logo */}
+            {experience.logo && (
+              <div className="flex-shrink-0">
+                <img 
+                  src={experience.logo} 
+                  alt={`${experience.company || experience.school} logo`}
+                  className="w-24 h-24 object-contain rounded-xl bg-white dark:bg-gray-700 p-3 shadow-lg border-2 border-gray-200 dark:border-gray-600"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
+                />
               </div>
-              <div className="flex items-center gap-1">
-                <MapPin size={16} />
-                <span>{experience.location}</span>
+            )}
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                {experience.title}
+              </h3>
+              <div className="flex items-center gap-4 text-gray-600 dark:text-gray-400">
+                <div className="flex items-center gap-1">
+                  <Briefcase size={16} />
+                  <span className="font-medium">{experience.company || experience.school}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <MapPin size={16} />
+                  <span>{experience.location}</span>
+                </div>
               </div>
             </div>
           </div>
