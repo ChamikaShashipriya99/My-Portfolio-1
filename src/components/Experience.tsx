@@ -22,7 +22,7 @@ const Experience = () => {
       company: "DoMedia Company",
       location: "Malabe, Sri Lanka",
       period: "Present",
-      logo: "/assets/domedia-logo.png",
+      logo: "/assets/domediaLogo.jpg",
       description: "Currently attending a comprehensive 3-month full-time Industrial Training Program focused on Full Stack Web Development. This intensive program covers both frontend and backend technologies to develop well-rounded web development skills.",
       technologies: ["Full Stack Development", "Web Technologies", "Modern Frameworks", "Best Practices"],
       achievements: [
